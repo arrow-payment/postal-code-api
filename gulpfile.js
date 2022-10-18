@@ -5,6 +5,7 @@ var download = require( 'gulp-download' );
 var decompress = require( 'gulp-decompress' );
 var convertEncoding = require( 'gulp-convert-encoding' );
 var chmod = require( 'gulp-chmod' );
+var rename = require( 'gulp-rename' );
 var postal2json = require( './lib/postal2json.js' );
 var jigyosyo2json = require( './lib/jigyosyo2json.js' );
 var v1 = require( './lib/v1.js' );
@@ -20,6 +21,10 @@ gulp.task( 'download', function () {
     .pipe( decompress() )
     .pipe( convertEncoding( { from: "shift_jis", to: "utf-8" } ) )
     .pipe( chmod( 644 ) )
+    .pipe( rename(path => {
+      path.basename = path.basename.toUpperCase();
+      path.extname = path.extname.toUpperCase();
+    }))
     .pipe( gulp.dest( 'api' ) );
 } );
 
