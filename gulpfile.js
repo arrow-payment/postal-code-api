@@ -13,9 +13,9 @@ var v2 = require('./lib/v2.js');
 
 gulp.task('download', function () {
   var urls = [
-    'https://www.post.japanpost.jp/zipcode/dl/roman/KEN_ALL_ROME.zip',
-    'http://www.post.japanpost.jp/zipcode/dl/kogaki/zip/ken_all.zip',
-    'http://www.post.japanpost.jp/zipcode/dl/jigyosyo/zip/jigyosyo.zip'
+    'https://www.post.japanpost.jp/service/search/zipcode/download/roman/KEN_ALL_ROME.zip',
+    'https://www.post.japanpost.jp/service/search/zipcode/download/kogaki/zip/ken_all.zip',
+    'https://www.post.japanpost.jp/service/search/zipcode/download/office/zip/jigyosyo.zip'
   ];
   return download(urls)
     .pipe(decompress())
